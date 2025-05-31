@@ -1,11 +1,11 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: kanit;
 }
 
-nav{
+nav {
     display: flex;
     box-shadow: 1px 1px 10px hsla(0, 0%, 0%, 0.5);
     justify-content: space-around;
@@ -13,19 +13,19 @@ nav{
     background-color: #C73983;
     color: white;
     padding: 1rem;
-    
-    a{
+
+    a {
         text-decoration: none;
         color: white;
     }
 
-    ul{
+    ul {
         display: flex;
         list-style: none;
         gap: 20px;
 
-        li{
-            a{
+        li {
+            a {
                 text-decoration: none;
                 color: white;
             }
@@ -33,12 +33,41 @@ nav{
     }
 }
 
-.container{
-    .video{
-        padding: 1rem;
-        iframe{
-            width: 700px;
-            height: 393px;
+.container {
+
+    display: flex;
+    padding: 1rem;
+
+    .video {
+
+        iframe {
+            width: 800px;
+            height: 450px;
         }
     }
+
+    .recommend {
+        margin: 0 auto;
+        width: 700px;
+
+        .item {
+            
+            button{
+                display: flex;
+                width: 100%;
+                img {
+                    width: 300px;
+                    height: 168.75px;
+                    object-fit: cover;
+                }
+                p{
+                    padding: 0 1rem;
+                }
+            }
+            
+        }
+
+    }
+
+
 }

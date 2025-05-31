@@ -47,6 +47,22 @@ app.get('/player', (req, res) => {
     res.render('player', { videoURL });
 })
 
+app.post('/player', (req, res) => {
+    const {id} = req.body;
+
+    console.log(id)
+
+    const sql = "select * from videostorage where id = ?"
+    const sql2 = "SELECT * FROM videostorage WHERE id != ?"
+
+    db.query(sql,[id],(err,firstresult)=>{
+        db.query(sql2,[id],(err,result)=>{
+            res.render('player', { video: firstresult[0] ,data: result });  
+        })
+    })
+
+})
+
 app.post('/upload', (req, res) => {
     const { video_thumbnail, video_url, video_name, description } = req.body
 

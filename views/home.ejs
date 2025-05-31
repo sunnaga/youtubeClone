@@ -28,10 +28,15 @@
             <% data.forEach(d => { %>
 
                 <div class="item">
-                    <a href="/player?video=<%= encodeURIComponent(d.video_URL) %>&name=<%= encodeURIComponent(d.video_name) %>" >
-                        <img src='<%= d.video_thumbnail %>' alt="">
-                        <p><%= d.video_name %></p>
-                    </a>
+                    <form action="/player" method="post">
+                        <input type="hidden" value="<%= d.id%>" name="id">
+                        <button type="submit">
+                            
+                            <img src='<%= d.video_thumbnail %>' alt="">
+                            <p><%= d.video_name %></p>
+                        </button>
+                    </form>
+                    
                 </div>
                 
             <% }); %>
