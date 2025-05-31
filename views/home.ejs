@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/main.css">
+    <title>YOOTUPE</title>
+</head>
+<body>
+    <nav>
+        <div class="logo"><a href="/">JOMKWAN</a></div>
+        
+        <ul class="menu">
+            <li>
+                <form action="">
+                    <input type="text" placeholder="search">
+                    <button>search</button>
+                </form>
+            </li>
+            <li><a href="upload">Uploads</a></li>
+            <li><a href="">Notification</a></li>
+            <li><a href="">Profile</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="video_container">
+            <% data.forEach(d => { %>
+
+                <div class="item">
+                    <a href="/player?video=<%= encodeURIComponent(d.video_URL) %>&name=<%= encodeURIComponent(d.video_name) %>" >
+                        <img src='<%= d.video_thumbnail %>' alt="">
+                        <p><%= d.video_name %></p>
+                    </a>
+                </div>
+                
+            <% }); %>
+        </div>
+        
+    </div>
+    
+    
+
+    <footer></footer>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/player.css">
+    <title>YOOTUPE</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo"><a href="/">JOMKWAN</a></div>
+
+        <ul class="menu">
+            <li>
+                <form action="">
+                    <input type="text" placeholder="search">
+                    <button>search</button>
+                </form>
+            </li>
+            <li><a href="">Uploads</a></li>
+            <li><a href="">Notification</a></li>
+            <li><a href="">Profile</a></li>
+        </ul>
+    </nav>
+
+
+    <div class="container">
+        <div class="video">
+            <iframe id="ytPlayer" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p id="video-name"><%  %></p>
+        </div>
+
+    </div>
+
+
+
+</body>
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const videoURL = params.get('video');
+    const videoName = params.get('name');
+
+    function convertToEmbedURL(youtubeURL) {
+        const match = youtubeURL.match(/(?:\?v=|\/embed\/|\.be\/)([a-zA-Z0-9_-]{11})/);
+        if (match && match[1]) {
+            return `https://www.youtube.com/embed/${match[1]}`;
+        }
+        return null;
+    }
+
+    const embedURL = convertToEmbedURL(videoURL);
+
+    if (embedURL) {
+        document.getElementById('ytPlayer').src = embedURL;
+    } else {
+        document.body.innerHTML = "<p>ไม่สามารถโหลดวิดีโอ YouTube ได้</p>";
+    }
+    
+
+    if (videoName) {
+        document.getElementById('video-name').innerHTML = videoName;
+    } else {
+        document.body.innerHTML = "<p>ไม่สามารถโหลดชื่อวิดีโอ YouTube ได้</p>";
+    }
+</script>
+
+</html>

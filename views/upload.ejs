@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/upload.css">
+    <title>Upload</title>
+</head>
+
+<body>
+    <nav>
+        <div class="logo"><a href="/">JOMKWAN</a></div>
+
+        <ul class="menu">
+            <li>
+                <form action="">
+                    <input type="text" placeholder="search">
+                    <button>search</button>
+                </form>
+            </li>
+            <li><a href="">Uploads</a></li>
+            <li><a href="">Notification</a></li>
+            <li><a href="">Profile</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>UPLOAD</h1>
+
+        <div class="upload-con">
+
+            <form action="upload" method="post">
+
+                <p>Video Thumbnail URL</p>
+                <input type="text" name="video_thumbnail" placeholder="video thumbnail URL" required id="vidthm">
+                <p>Video URL</p>
+                <input type="text" name="video_url" placeholder="video URL from Youtube" required>
+                <p>Video name</p>
+                <input type="text" name="video_name" placeholder="video name" required id="vidname">
+                <p>Description</p>
+                <textarea name="description" id="" placeholder="description" value="" required></textarea>
+
+                <button>Upload</button>
+            </form>
+
+            <div class="display-con">
+                <img src="../img/thumbnail.png" alt="" id="samplethm">
+                <p id="samplename">Video name</p>
+            </div>
+
+        </div>
+
+
+    </div>
+</body>
+<script>
+
+    const vidthm = document.getElementById('vidthm')
+    const samplethm = document.getElementById('samplethm')
+
+    const vidname = document.getElementById('vidname')
+    const samplename = document.getElementById('samplename')
+
+    vidthm.addEventListener('input',()=>{
+        samplethm.src = vidthm.value
+    })
+    vidname.addEventListener('input',()=>{
+        samplename.textContent = vidname.value
+    })
+
+</script>
+
+
+</html>
